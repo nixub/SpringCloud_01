@@ -12,7 +12,9 @@ public class Usercontroller {
     private UserService userService;
     @GetMapping("/{id}")
     public User findById(@PathVariable(name = "id") Integer id){
+        System.out.println("");
         return userService.findById(id);
+
 
     }
 
