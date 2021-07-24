@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT
+    username: root
+    password: 1234
+  application:
+    name: user-provider
+server:
+  port: 18081
+eureka:
+  client:
+    service-url:
+      # EurekaServer的地址
+      defaultZone: http://localhost:7001/eureka
+    registry-fetch-interval-seconds: 30
+    #每隔30秒拉取一次
+  instance:
+    #指定IP地址,避免计算机重名
+    ip-address: 127.0.0.1
+    #访问服务的时候，推荐使用IP
+    prefer-ip-address: true
+    #使用IP地址来进行注册
+    #租约到期，服务时效时间，默认值90秒
+    lease-expiration-duration-in-seconds: 35
+    #租约续约间隔时间，默认30秒
+    lease-renewal-interval-in-seconds: 15
+
+
